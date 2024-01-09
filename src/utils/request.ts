@@ -2,7 +2,7 @@
  * @Author: ChuandongHuang chuandong_huang@human-horizons.com
  * @Date: 2024-01-08 11:29:47
  * @LastEditors: ChuandongHuang chuandong_huang@human-horizons.com
- * @LastEditTime: 2024-01-08 11:34:42
+ * @LastEditTime: 2024-01-09 17:59:09
  * @Description:
  */
 // axios封装
@@ -11,14 +11,8 @@ import { AxiosResponse } from "axios";
 import { getToken, removeToken } from "@/utils/index";
 import { message } from "antd";
 import router from "@/route";
-let baseURL: string;
-if (process.env.ENV === "dev") {
-  baseURL = "xxx本地环境xxx";
-} else if (process.env.ENV === "prod") {
-  baseURL = "xxx生产环境xxx";
-}
 const request = axios.create({
-  baseURL,
+  baseURL: import.meta.env.VITE_BASE_API_URL,
   timeout: 1000 * 5,
 });
 
