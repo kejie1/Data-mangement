@@ -2,7 +2,7 @@
  * @Author: ChuandongHuang chuandong_huang@human-horizons.com
  * @Date: 2024-01-09 15:31:50
  * @LastEditors: ChuandongHuang chuandong_huang@human-horizons.com
- * @LastEditTime: 2024-01-09 17:58:21
+ * @LastEditTime: 2024-01-10 13:18:53
  * @Description:
  */
 import { Dispatch, createSlice } from "@reduxjs/toolkit";
@@ -138,7 +138,7 @@ const loginSlice = createSlice({
         ],
       };
       setToken(
-        "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwZTE1YzBiOS01NjdmLTQ3MzItYmI3Zi0wMTY2MzQ0NGQ3N2QiLCJzdWIiOiJ7XCJ1c2VySW5mb1wiOjI5MCxcImFjY2Vzc1Rva2VuXCI6XCJQQVQtNDQ5NTk1LW9OYlBUZXRINnFieDNPMXZLSjl3Q1NnTkE1TnFtb3ptQUdhaVVicXRiaUFlaHVvenk5XCJ9IiwiaXNzIjoiYWRtaW4iLCJpYXQiOjE3MDQ3OTI1MTIsImV4cCI6MTcwNDc5NjExMn0.G0W6VsdTnbxobpFUGHDreb0b4-tRi4URG9E9CKupIjw"
+        "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzM2VmYmViYS04NTYyLTQ2OGQtYjExNS1jZjg3MjYzYmI3ZWQiLCJzdWIiOiJ7XCJ1c2VySW5mb1wiOjI5MCxcImFjY2Vzc1Rva2VuXCI6XCJQQVQtNDUzNDcwLVllZlFFWXQwVGpBYTJxU3Nubmc1S1A2TXR3VVBycHFRSUwwTTdSTDc1bWcxTzBZTmt0XCJ9IiwiaXNzIjoiYWRtaW4iLCJpYXQiOjE3MDQ4NjM0NzEsImV4cCI6MTcwNDg2NzA3MX0.TZdfSBYxNlA34kaK2eKUywcbKAfd0yM0swO1m021QCc"
       );
     },
   },

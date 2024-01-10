@@ -1,0 +1,63 @@
+$main-color: rgb(99, 66, 191);
+$main-light-color: rgba(99, 66, 191, 0.5);
+.cursor-p {
+  cursor: pointer;
+}
+.main-font {
+  color: #747474;
+}
+
+.pd-m-tb {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.pd-m-t {
+  padding-top: 16px;
+}
+.pd-m-b {
+  padding-bottom: 16px;
+}
+.pd-m-lr {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.pd-m {
+  padding: 16px;
+}
+
+.flex {
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.items-center {
+  align-items: center;
+}
+
+.over-hidden {
+  overflow: hidden;
+}
+
+.ant-table-body {
+  &::-webkit-scrollbar {
+    height: 12px;
+    width: 3px;
+    overflow-y: auto;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: $main-light-color;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: 0;
+    border-radius: 0;
+    background: rgba(255, 207, 245, 0.5);
+  }
+}

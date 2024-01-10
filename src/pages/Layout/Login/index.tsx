@@ -2,7 +2,7 @@
  * @Author: ChuandongHuang chuandong_huang@human-horizons.com
  * @Date: 2024-01-09 15:04:02
  * @LastEditors: ChuandongHuang chuandong_huang@human-horizons.com
- * @LastEditTime: 2024-01-09 17:57:59
+ * @LastEditTime: 2024-01-10 13:17:32
  * @Description: 
  */
 import { Button, Form, Input } from 'antd';
@@ -18,7 +18,7 @@ const Login = () => {
     const onFinish = async (values: any) => {
         try {
             await dispatch(fetchUserInfo({
-                code: "ST-450555-6a6APy0xQKdk4HQ0ze11"
+                code: "ST-454398-qmdLTYZeNmrl5jav1LaD"
             }) as unknown as UnknownAction)
             navigate('/')
         } catch (e) {
