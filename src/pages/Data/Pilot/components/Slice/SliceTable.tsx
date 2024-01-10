@@ -14,8 +14,8 @@
  */
 import { Button, Table, ConfigProvider, Tag, Space } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { slice } from './data'
-import { tableToken } from './common';
+import { slice } from '../data'
+import { tableToken } from '../common';
 import { SliceResponse } from '@/types';
 import { PlayCircleOutlined, CloudDownloadOutlined } from '@ant-design/icons'
 

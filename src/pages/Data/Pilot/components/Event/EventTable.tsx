@@ -2,11 +2,11 @@
  * @Author: ChuandongHuang chuandong_huang@human-horizons.com
  * @Date: 2024-01-10 11:48:25
  * @LastEditors: ChuandongHuang chuandong_huang@human-horizons.com
- * @LastEditTime: 2024-01-10 17:41:23
+ * @LastEditTime: 2024-01-10 17:58:01
  * @Description: 
  */
 import { Select, Table, Tag, Space, Button } from 'antd';
-import { event } from './data'
+import { event } from './../data'
 import '@/assets/style/global.scss'
 import { EventResponse } from '@/types';
 import type { ColumnsType } from 'antd/es/table';
@@ -33,8 +33,8 @@ const EventTable = ({ list, onGetPagination }) => {
         "pageSize": 20
     }
     const paginationProps = {
-        current: event.currentIndex, //当前页码
-        pageSize: event.pageCount, // 每页数据条数
+        current: 1, //当前页码
+        pageSize: 20, // 每页数据条数
         total: event.total, // 总条数
         onChange: page => onGetPagination('event', page), //改变页码的函数
         hideOnSinglePage: false,  // 只有一页时是否隐藏分页器

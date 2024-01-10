@@ -2,14 +2,14 @@
  * @Author: ChuandongHuang chuandong_huang@human-horizons.com
  * @Date: 2024-01-09 17:46:56
  * @LastEditors: ChuandongHuang chuandong_huang@human-horizons.com
- * @LastEditTime: 2024-01-10 17:40:57
+ * @LastEditTime: 2024-01-10 17:58:19
  * @Description: 
  */
 import { useEffect, useState } from 'react'
-import SliceForm from './components/sliceForm'
-import SliceTable from './components/sliceTable'
-import EventForm from './components/eventForm'
-import EventTable from './components/eventTable'
+import SliceForm from './components/Slice/SliceForm'
+import SliceTable from './components/Slice/SliceTable'
+import EventForm from './components/Event/EventForm'
+import EventTable from './components/Event/EventTable'
 import { slice, event } from './components/data'
 function Index() {
     const [sliceList, setSliceList] = useState([])
