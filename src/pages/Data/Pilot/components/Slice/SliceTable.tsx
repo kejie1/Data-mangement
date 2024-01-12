@@ -2,36 +2,47 @@
  * @Author: ChuandongHuang chuandong_huang@human-horizons.com
  * @Date: 2024-01-10 11:48:25
  * @LastEditors: ChuandongHuang chuandong_huang@human-horizons.com
- * @LastEditTime: 2024-01-10 17:27:20
+ * @LastEditTime: 2024-01-12 14:45:45
  * @Description: 
  */
-/*
- * @Author: ChuandongHuang chuandong_huang@human-horizons.com
- * @Date: 2024-01-10 11:48:25
- * @LastEditors: ChuandongHuang chuandong_huang@human-horizons.com
- * @LastEditTime: 2024-01-10 14:19:27
- * @Description: 
- */
-import { Button, Table, ConfigProvider, Tag, Space } from 'antd';
+import { Button, Table, ConfigProvider, Tag, Space, Tooltip } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { slice } from '../data'
 import { tableToken } from '../common';
-import { SliceResponse } from '@/types';
+import { SliceResponse, SliceResponseData } from '@/types';
 import { PlayCircleOutlined, CloudDownloadOutlined } from '@ant-design/icons'
-
-const SliceTable = ({ list, onGetPagination }) => {
+import type { Page } from '@/types'
+import { getSliceObsKeyAPI } from '@/apis';
+import { getUserId } from '@/utils';
+interface SliceTableType {
+    response: SliceResponseData,
+    setSlicePage: React.Dispatch<React.SetStateAction<Page>>
+    slicePage: Page,
+    setSliceOpen: React.Dispatch<React.SetStateAction<boolean>>,
+    setSliceId: React.Dispatch<React.SetStateAction<string>>
+}
+const SliceTable: React.FC<SliceTableType> = ({ response, slicePage, setSlicePage, setSliceOpen, setSliceId }) => {
+    const list = response?.results
     const paginationProps = {
-        current: 1, //当前页码
-        pageSize: 20, // 每页数据条数
-        total: slice.total, // 总条数
-        onChange: page => onGetPagination(page), //改变页码的函数
+        current: slicePage.pageNum, //当前页码
+        pageSize: slicePage.pageSize, // 每页数据条数
+        total: response?.total, // 总条数
+        onChange: pageNum => setSlicePage({ ...slicePage, pageNum }), //改变页码的函数
+        onShowSizeChange: (current, pageSize) => setSlicePage({ ...slicePage, pageSize }), // 改变pageSize
         hideOnSinglePage: false,  // 只有一页时是否隐藏分页器
     };
-    const handleJumpDreamer = (row: SliceResponse) => {
-        // 
+    const handleJumpDreamer = (record: SliceResponse) => {
+        getSliceObsKeyAPI(record.id).then(res => {
+            const { obsBucket, obsKey } = res.data
+            const url = `${import.meta.env.VITE_DREAMER_URL}?model=highspeed&obsBucket=${obsBucket}&obs=${obsKey}`
+            window.open(url, '_blank')
+        })
     }
-    const handleFileDown = (row: SliceResponse) => {
-        // 
+    const handleFileDown = (record: SliceResponse) => {
+        window.open(`${import.meta.env.VITE_APP_BASE_API}v1/ori/getIdSegmentZip/${record.id}/${getUserId()}`, "_blank")
+    }
+    const handleDbClick = (record) => {
+        setSliceId(record.id)
+        setSliceOpen(true)
     }
     const SliceTableSchema: ColumnsType<SliceResponse> = [
         {
@@ -111,16 +122,31 @@ const SliceTable = ({ list, onGetPagination }) => {
             width: 100,
             render: (_, record) => (
                 <Space size="small">
-                    <Button size='small' type='primary' onClick={() => { handleJumpDreamer(record) }} icon={<PlayCircleOutlined />}></Button>
-                    <Button size='small' type='primary' onClick={() => { handleFileDown(record) }} icon={<CloudDownloadOutlined />}></Button>
+                    <Tooltip placement='top' title={record.mcapStatus === 'completed' ? '一键跳转至Dreamer' : '视频解码未完成，Dreamer无法加载视频'}>
+                        <Button size='small' type='primary' danger={record.mcapStatus !== 'completed' && true} onClick={() => { handleJumpDreamer(record) }} icon={<PlayCircleOutlined />} />
+                    </Tooltip>
+                    <Tooltip placement='top' title="下载文件">
+                        <Button size='small' type='primary' onClick={() => { handleFileDown(record) }} icon={<CloudDownloadOutlined />} />
+                    </Tooltip>
                 </Space>
             ),
         },
     ];
+
     return (
         <ConfigProvider theme={{ components: { Table: tableToken } }}>
 
-            <Table columns={SliceTableSchema} pagination={paginationProps} scroll={{ y: '35vh' }} dataSource={list} size="small" rowKey='id' />
+            <Table onRow={(record) => {
+                return {
+                    onDoubleClick: (event) => { handleDbClick(record) },
+                };
+            }}
+                columns={SliceTableSchema}
+                pagination={paginationProps}
+                scroll={{ y: '35vh' }}
+                dataSource={list}
+                size="small"
+                rowKey='id' />
         </ConfigProvider>
     )
 }

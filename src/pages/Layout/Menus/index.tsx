@@ -2,7 +2,7 @@
  * @Author: ChuandongHuang chuandong_huang@human-horizons.com
  * @Date: 2024-01-09 15:22:39
  * @LastEditors: ChuandongHuang chuandong_huang@human-horizons.com
- * @LastEditTime: 2024-01-10 10:36:32
+ * @LastEditTime: 2024-01-12 15:05:17
  * @Description: 
  */
 /*
@@ -13,7 +13,7 @@
  * @Description: 
  */
 import { Menu, Layout, Button, theme, MenuProps } from 'antd'
-import { LogoSvg } from '@/icons/Icon';
+import { LogoIcon } from '@/icons/Icon';
 import { useState } from 'react';
 import {
     DesktopOutlined,
@@ -56,7 +56,6 @@ function Menus() {
     ];
     const navigate = useNavigate()
     const handleMenuClick = (value) => {
-        console.log("🚀 ~ handleMenuClick ~ value:", value)
         navigate(value.key)
     }
     return (
@@ -64,7 +63,7 @@ function Menus() {
             <div className='flex justify-center items-center'>
                 <Button
                     type="text"
-                    icon={<LogoSvg />}
+                    icon={<LogoIcon />}
                     onClick={() => setCollapsed(!collapsed)}
                     style={{
                         width: '50px', height: '50px'

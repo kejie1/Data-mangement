@@ -13,13 +13,27 @@ export interface SliceSearch {
   startDate?: string;
   endDate?: string;
 }
-// export interface SliceResponse {
-//   results: Result[];
-//   total: number;
-//   pageCount: number;
-//   currentIndex: number;
-//   hasNext: boolean;
-// }
+export interface EventSearch {
+  id?: string;
+  vehicleCode?: string;
+  adcm?: string;
+  labelNameList?: any[];
+  path?: string;
+  location?: string;
+  eventDescription?: string;
+  stepSize?: string;
+  eventTime?: string;
+  startDate?: string;
+  endDate?: string;
+}
+
+export interface SliceResponseData {
+  results: SliceResponse[];
+  total: number;
+  pageCount: number;
+  currentIndex: number;
+  hasNext: boolean;
+}
 
 export interface SliceResponse {
   id: string;
@@ -29,7 +43,7 @@ export interface SliceResponse {
   startDate: string;
   endDate: string;
   labels: Label[];
-  events: Event[];
+  events: Events[];
   filesInfo?: any;
   dateCreated: string;
   adcm: string;
@@ -42,12 +56,7 @@ export interface SliceResponse {
   errorsDetail: ErrorsDetail[];
 }
 
-interface ErrorsDetail {
-  errorName: string;
-  errorType: string;
-}
-
-interface Event {
+export interface Events {
   adcm: string;
   date_updated: number;
   collect_site: string;
@@ -56,7 +65,7 @@ interface Event {
   event_time: number;
 }
 
-interface Label {
+export interface Label {
   duration: number;
   end_date: number;
   total_mileage: number;
@@ -79,13 +88,13 @@ interface Framelabel {
 interface Position {
   coordinates?: any;
 }
-// export interface EventResponse {
-//     results: Result[];
-//     total: number;
-//     pageCount: number;
-//     currentIndex: number;
-//     hasNext: boolean;
-//   }
+export interface EventResponseData {
+  results: EventResponse[];
+  total: number;
+  pageCount: number;
+  currentIndex: number;
+  hasNext: boolean;
+}
 
 export interface EventResponse {
   id: string;
@@ -120,4 +129,34 @@ interface Framelabel {
 
 interface Position {
   coordinates?: any;
+}
+
+export interface SliceDetailResponse {
+  id: string;
+  path: string;
+  version: string;
+  vehicleCode: string;
+  startDate: string;
+  endDate: string;
+  labels: any[];
+  events: Events[];
+  filesInfo: FilesInfo[];
+  dateCreated: string;
+  adcm: string;
+  obsBucket: string;
+  location: string;
+  person: string;
+  mcapStatus: string;
+  isImmediate: boolean;
+  errors: any[];
+  errorsDetail: ErrorsDetail[];
+}
+export interface ErrorsDetail {
+  errorName: string;
+  errorType: string;
+}
+export interface FilesInfo {
+  path: string;
+  file_name: string;
+  download_url: string;
 }

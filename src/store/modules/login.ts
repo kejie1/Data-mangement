@@ -2,7 +2,7 @@
  * @Author: ChuandongHuang chuandong_huang@human-horizons.com
  * @Date: 2024-01-09 15:31:50
  * @LastEditors: ChuandongHuang chuandong_huang@human-horizons.com
- * @LastEditTime: 2024-01-10 13:18:53
+ * @LastEditTime: 2024-01-11 17:51:25
  * @Description:
  */
 import { Dispatch, createSlice } from "@reduxjs/toolkit";
@@ -39,107 +39,107 @@ const loginSlice = createSlice({
   },
   reducers: {
     setUserInfo(state, action) {
-      // const user = action.payload[0];
-      // state.userInfo = user.userInfo;
-      // setToken(user.accessToken);
-      state.userInfo = {
-        id: 290,
-        name: "黄川东",
-        roleInfo: [
-          {
-            name: "superAdmin",
-            id: 1,
-          },
-        ],
-        menuInfo: [
-          {
-            id: "1",
-            name: "原始数据",
-            path: "/original",
-            children: [
-              {
-                id: "2",
-                name: "高速数据查询",
-                path: "/dataQuery",
-              },
-              {
-                id: "103",
-                name: "泊车数据查询",
-                path: "/parkingDataQuery",
-              },
-              {
-                id: "104",
-                name: "路试问题与轨迹",
-                path: "/problemDistribution",
-              },
-            ],
-          },
-          {
-            id: "3",
-            name: "SIL",
-            path: "/sil",
-            children: [
-              {
-                id: "5",
-                name: "数据预处理",
-                path: "/retrieve",
-              },
-              {
-                id: "6",
-                name: "数据集合",
-                path: "/testSet",
-              },
-              {
-                id: "7",
-                name: "数据回灌结果",
-                path: "/recharge",
-              },
-            ],
-          },
-          {
-            id: "8",
-            name: "场景分类模型",
-            path: "/sceneType",
-            children: [
-              {
-                id: "9",
-                name: "视频切片",
-                path: "/videoSlice",
-              },
-              {
-                id: "10",
-                name: "场景分类结果",
-                path: "/result",
-              },
-            ],
-          },
-          {
-            id: "99",
-            name: "用户管理",
-            path: "/users",
-          },
-          {
-            id: "100",
-            name: "权限管理",
-            path: "/auth",
-          },
-          {
-            id: "101",
-            name: "感知",
-            path: "/perception",
-            children: [
-              {
-                id: "102",
-                name: "7v数据预处理",
-                path: "/preprocessing",
-              },
-            ],
-          },
-        ],
-      };
-      setToken(
-        "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzM2VmYmViYS04NTYyLTQ2OGQtYjExNS1jZjg3MjYzYmI3ZWQiLCJzdWIiOiJ7XCJ1c2VySW5mb1wiOjI5MCxcImFjY2Vzc1Rva2VuXCI6XCJQQVQtNDUzNDcwLVllZlFFWXQwVGpBYTJxU3Nubmc1S1A2TXR3VVBycHFRSUwwTTdSTDc1bWcxTzBZTmt0XCJ9IiwiaXNzIjoiYWRtaW4iLCJpYXQiOjE3MDQ4NjM0NzEsImV4cCI6MTcwNDg2NzA3MX0.TZdfSBYxNlA34kaK2eKUywcbKAfd0yM0swO1m021QCc"
-      );
+      const user = action.payload[0];
+      state.userInfo = user.userInfo;
+      setToken(user.accessToken);
+      // state.userInfo = {
+      //   id: 290,
+      //   name: "黄川东",
+      //   roleInfo: [
+      //     {
+      //       name: "superAdmin",
+      //       id: 1,
+      //     },
+      //   ],
+      //   menuInfo: [
+      //     {
+      //       id: "1",
+      //       name: "原始数据",
+      //       path: "/original",
+      //       children: [
+      //         {
+      //           id: "2",
+      //           name: "高速数据查询",
+      //           path: "/dataQuery",
+      //         },
+      //         {
+      //           id: "103",
+      //           name: "泊车数据查询",
+      //           path: "/parkingDataQuery",
+      //         },
+      //         {
+      //           id: "104",
+      //           name: "路试问题与轨迹",
+      //           path: "/problemDistribution",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       id: "3",
+      //       name: "SIL",
+      //       path: "/sil",
+      //       children: [
+      //         {
+      //           id: "5",
+      //           name: "数据预处理",
+      //           path: "/retrieve",
+      //         },
+      //         {
+      //           id: "6",
+      //           name: "数据集合",
+      //           path: "/testSet",
+      //         },
+      //         {
+      //           id: "7",
+      //           name: "数据回灌结果",
+      //           path: "/recharge",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       id: "8",
+      //       name: "场景分类模型",
+      //       path: "/sceneType",
+      //       children: [
+      //         {
+      //           id: "9",
+      //           name: "视频切片",
+      //           path: "/videoSlice",
+      //         },
+      //         {
+      //           id: "10",
+      //           name: "场景分类结果",
+      //           path: "/result",
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       id: "99",
+      //       name: "用户管理",
+      //       path: "/users",
+      //     },
+      //     {
+      //       id: "100",
+      //       name: "权限管理",
+      //       path: "/auth",
+      //     },
+      //     {
+      //       id: "101",
+      //       name: "感知",
+      //       path: "/perception",
+      //       children: [
+      //         {
+      //           id: "102",
+      //           name: "7v数据预处理",
+      //           path: "/preprocessing",
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // };
+      // setToken(
+      //   "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzM2VmYmViYS04NTYyLTQ2OGQtYjExNS1jZjg3MjYzYmI3ZWQiLCJzdWIiOiJ7XCJ1c2VySW5mb1wiOjI5MCxcImFjY2Vzc1Rva2VuXCI6XCJQQVQtNDUzNDcwLVllZlFFWXQwVGpBYTJxU3Nubmc1S1A2TXR3VVBycHFRSUwwTTdSTDc1bWcxTzBZTmt0XCJ9IiwiaXNzIjoiYWRtaW4iLCJpYXQiOjE3MDQ4NjM0NzEsImV4cCI6MTcwNDg2NzA3MX0.TZdfSBYxNlA34kaK2eKUywcbKAfd0yM0swO1m021QCc"
+      // );
     },
   },
 });

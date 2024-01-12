@@ -2,7 +2,7 @@
  * @Author: ChuandongHuang chuandong_huang@human-horizons.com
  * @Date: 2024-01-08 11:29:47
  * @LastEditors: ChuandongHuang chuandong_huang@human-horizons.com
- * @LastEditTime: 2024-01-09 17:59:09
+ * @LastEditTime: 2024-01-11 10:50:33
  * @Description:
  */
 // axios封装
@@ -22,7 +22,7 @@ request.interceptors.request.use(
     // axios拦截器配置token
     const token = getToken();
     if (token) {
-      config.headers.Authorization = token;
+      config.headers['Token'] = token;
     }
     return config;
   },

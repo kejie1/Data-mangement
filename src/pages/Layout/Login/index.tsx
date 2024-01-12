@@ -2,7 +2,7 @@
  * @Author: ChuandongHuang chuandong_huang@human-horizons.com
  * @Date: 2024-01-09 15:04:02
  * @LastEditors: ChuandongHuang chuandong_huang@human-horizons.com
- * @LastEditTime: 2024-01-10 13:17:32
+ * @LastEditTime: 2024-01-12 10:52:56
  * @Description: 
  */
 import { Button, Form, Input } from 'antd';
@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux'
 import { UnknownAction } from '@reduxjs/toolkit'
 import './index.scss'
 import { useNavigate } from 'react-router-dom';
+import { fetchLabelList } from '@/store/modules/common';
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -18,18 +19,14 @@ const Login = () => {
     const onFinish = async (values: any) => {
         try {
             await dispatch(fetchUserInfo({
-                code: "ST-454398-qmdLTYZeNmrl5jav1LaD"
+                code: "ST-462476-htvFsTHHC3V0F91iSC2V"
             }) as unknown as UnknownAction)
+            await dispatch(fetchLabelList as unknown as UnknownAction)
             navigate('/')
         } catch (e) {
             console.log("🚀 ~ onFinish ~ e:", e)
         }
     };
-
-    const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
-    };
-
     type FieldType = {
         username?: string;
         password?: string;
@@ -44,7 +41,6 @@ const Login = () => {
                     style={{ minWidth: 300 }}
                     initialValues={{ remember: true }}
                     onFinish={onFinish}
-                    onFinishFailed={onFinishFailed}
                     autoComplete="off"
                 >
                     <Form.Item<FieldType>

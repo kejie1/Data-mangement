@@ -2,7 +2,7 @@
  * @Author: ChuandongHuang chuandong_huang@human-horizons.com
  * @Date: 2024-01-09 14:31:27
  * @LastEditors: ChuandongHuang chuandong_huang@human-horizons.com
- * @LastEditTime: 2024-01-10 14:31:22
+ * @LastEditTime: 2024-01-11 11:34:56
  * @Description: 
  */
 import React from 'react'
@@ -18,8 +18,7 @@ const root = ReactDOM.createRoot(
 )
 const antdToken = {
   colorPrimary: '#6342BF',
-  headerBg: '#fffff'
-
+  headerBg: '#fffff',
 }
 root.render(
   <React.StrictMode>
